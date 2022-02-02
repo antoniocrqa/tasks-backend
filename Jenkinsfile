@@ -51,5 +51,13 @@ pipeline {
                 }
             }
         }
+         stage ('Functional Test'){
+            steps{
+                dir('functional-test') {
+                    git 'https://github.com/antoniocrqa/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
